@@ -1,0 +1,28 @@
+{
+  "groupkfold": {
+    "scheme": "GroupKFold-by-PIDWON (pooled transitions)",
+    "auc_mean": 0.7985581324542324,
+    "auc_sd": 0.005835595935557428,
+    "rga": 0.7984873759336995,
+    "aurga": 0.6837051619158598
+  },
+  "fold_auc": [
+    0.8009,
+    0.7898,
+    0.8035,
+    0.7937,
+    0.8049
+  ],
+  "time_split": {
+    "auc": 0.7974038364094834,
+    "rga": 0.7974038364094835
+  },
+  "death_sensitivity": {
+    "n_test": 11571,
+    "n_death": 93,
+    "rga_all": 0.7974038364094835,
+    "rga_excl_death": 0.799136623176013,
+    "auc_all": 0.7974038364094834,
+    "auc_excl_death": 0.799136623176013
+  }
+}

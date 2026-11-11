@@ -1,0 +1,22 @@
+{
+  "models": {
+    "Ridge": {
+      "r2_log": 0.2097109715712243,
+      "spearman": 0.5783370722869894,
+      "rga_cost": 0.7658406692239325,
+      "auc_recover_binary": 0.7416929101012468
+    },
+    "XGBoostReg": {
+      "r2_log": 0.3957007036823056,
+      "spearman": 0.6394072131912756,
+      "rga_cost": 0.7879686998330542,
+      "auc_recover_binary": 0.7602098114702178
+    }
+  },
+  "cross_check": {
+    "binary_rga": 0.7974038364094835,
+    "continuous_rga_cost": 0.7879686998330542,
+    "continuous_recover_auc": 0.7602098114702178,
+    "spearman_binaryscore_vs_regscore": 0.7995820666040541
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "n_person_years": 86569,
+  "n_household_years": 36905,
+  "concentration_top_decile_pct": 61.1,
+  "public_share_pct": {
+    "Overall": 57.6,
+    "Medical-Aid": 87.3,
+    "Disability": 74.7,
+    "Age>=65": 60.8,
+    "Low income": 68.6
+  },
+  "oop_share_pct": {
+    "Overall": 42.4,
+    "Medical-Aid": 12.7,
+    "Disability": 25.3,
+    "Age>=65": 39.2,
+    "Low income": 31.4
+  },
+  "che": {
+    "Overall": {
+      "n": 36905,
+      "che10": 21.5,
+      "che40": 6.9,
+      "impov": 3.9
+    },
+    "Medical-Aid": {
+      "n": 2333,
+      "che10": 16.0,
+      "che40": 5.9,
+      "impov": 3.6
+    },
+    "Disability": {
+      "n": 5225,
+      "che10": 34.8,
+      "che40": 11.8,
+      "impov": 7.2
+    },
+    "Age>=65": {
+      "n": 20106,
+      "che10": 31.6,
+      "che40": 10.5,
+      "impov": 6.2
+    },
+    "Low income": {
+      "n": 11190,
+      "che10": 38.8,
+      "che40": 15.4,
+      "impov": 8.3
+    }
+  },
+  "seed": 42,
+  "definitions": {
+    "oop": "facility co-payment (MEXP3_1) + pharmacy (MEXP4_1)",
+    "public": "insurer (NHI / Medical-Aid) share (MEXP3_2)",
+    "capacity_to_pay": "household income net of a 40% subsistence allowance",
+    "che10": "OOP > 10% of household income",
+    "che40": "OOP > 40% of capacity to pay",
+    "impoverishment": "household pushed below 50% of median household income by its OOP"
+  },
+  "note": "Survey-reported income and OOP; estimates for the public-finance / financial-risk framing. Not folded into the TRIAGE Score."
+}

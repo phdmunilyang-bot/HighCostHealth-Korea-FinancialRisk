@@ -1,0 +1,126 @@
+{
+  "dataset": "Korea Health Panel Study, 2nd wave (2019-2024)",
+  "unit": "person-year transition (features at t, outcome at t+1)",
+  "panel_key": "PIDWON",
+  "n_rows": 64851,
+  "n_transitions": 5,
+  "target": {
+    "name": "y_highcost",
+    "type": "binary",
+    "definition": "total medical expenditure at t+1 (facility OOP + statutory copay path MEXP3_1 + insurer share MEXP3_2 + pharmacy MEXP4_1) in the top decile",
+    "prevalence": 0.1001,
+    "threshold_rule": "per-transition 90th percentile; negative/missing costs set to 0"
+  },
+  "split": {
+    "scheme": "prospective time split",
+    "train": "2019->2020 ... 2022->2023",
+    "test": "2023->2024",
+    "n_train": 53280,
+    "n_test": 11571,
+    "alternative": "GroupKFold by PIDWON (prevents person-level leakage)"
+  },
+  "features": {
+    "age": "float64",
+    "sex": "float64",
+    "capital": "int64",
+    "edu": "float64",
+    "marr": "float64",
+    "health_ins": "float64",
+    "medical_aid": "int64",
+    "hh_income": "float64",
+    "inc_q": "float64",
+    "disability": "int64",
+    "care_need": "int64",
+    "ltc": "int64",
+    "cd_any": "int64",
+    "n_chronic": "int64",
+    "cost": "float64",
+    "oop": "float64",
+    "n_visit": "float64",
+    "n_in": "float64",
+    "n_er": "float64",
+    "any_inpatient": "int64",
+    "n_phi": "int64",
+    "has_phi": "int64"
+  },
+  "sensitive_attributes": [
+    "medical_aid",
+    "disability",
+    "sex",
+    "age>=65",
+    "inc_q(low)",
+    "capital"
+  ],
+  "missingness": {
+    "age": 4647,
+    "sex": 4647,
+    "edu": 4647,
+    "marr": 4647,
+    "health_ins": 4647,
+    "hh_income": 4647,
+    "inc_q": 4647
+  },
+  "attrition": [
+    {
+      "transition": "2019->2020",
+      "n_t": 16587,
+      "dropped": 1874,
+      "rate": 11.3,
+      "rate_death": 0.47,
+      "rate_medaid": 7.3,
+      "rate_nonmedaid": 11.4,
+      "rate_age65": 6.6,
+      "rate_disab": 6.8
+    },
+    {
+      "transition": "2020->2021",
+      "n_t": 14844,
+      "dropped": 1210,
+      "rate": 8.2,
+      "rate_death": 0.57,
+      "rate_medaid": 8.0,
+      "rate_nonmedaid": 8.2,
+      "rate_age65": 5.6,
+      "rate_disab": 6.4
+    },
+    {
+      "transition": "2021->2022",
+      "n_t": 13799,
+      "dropped": 977,
+      "rate": 7.1,
+      "rate_death": 0.54,
+      "rate_medaid": 7.4,
+      "rate_nonmedaid": 7.1,
+      "rate_age65": 5.2,
+      "rate_disab": 6.5
+    },
+    {
+      "transition": "2022->2023",
+      "n_t": 12909,
+      "dropped": 798,
+      "rate": 6.2,
+      "rate_death": 0.7,
+      "rate_medaid": 8.8,
+      "rate_nonmedaid": 6.1,
+      "rate_age65": 4.6,
+      "rate_disab": 7.3
+    },
+    {
+      "transition": "2023->2024",
+      "n_t": 12169,
+      "dropped": 598,
+      "rate": 4.9,
+      "rate_death": 0.64,
+      "rate_medaid": 5.4,
+      "rate_nonmedaid": 4.9,
+      "rate_age65": 4.5,
+      "rate_disab": 6.2
+    }
+  ],
+  "seed": 42,
+  "notes": [
+    "2024 refresh sample (new PIDWONs) has no prior-year features; used as outcomes only.",
+    "death_next=1 marks death during the transition -> cost censoring / competing risk (flagged for sensitivity analysis).",
+    "Costs are self-reported survey values, not administrative claims."
+  ]
+}
