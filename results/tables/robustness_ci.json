@@ -1,0 +1,105 @@
+{
+  "Medical-Aid": {
+    "n": 454,
+    "n_pos": 87,
+    "observed": 0.1916,
+    "observed_CI": [
+      0.1561,
+      0.2273
+    ],
+    "predicted": 0.2731,
+    "predicted_CI": [
+      0.2311,
+      0.3142
+    ],
+    "gap_pred_minus_observed": 0.0815,
+    "gap_op_CI": [
+      0.0434,
+      0.1196
+    ],
+    "gap_vs_comparison": 0.1801,
+    "gap_pc_CI": [
+      0.1371,
+      0.2219
+    ]
+  },
+  "Disability": {
+    "n": 822,
+    "n_pos": 177,
+    "observed": 0.2153,
+    "observed_CI": [
+      0.187,
+      0.2438
+    ],
+    "predicted": 0.32,
+    "predicted_CI": [
+      0.2885,
+      0.3529
+    ],
+    "gap_pred_minus_observed": 0.1046,
+    "gap_op_CI": [
+      0.0718,
+      0.1382
+    ],
+    "gap_vs_comparison": 0.2367,
+    "gap_pc_CI": [
+      0.205,
+      0.27
+    ]
+  },
+  "Low income": {
+    "n": 2154,
+    "n_pos": 354,
+    "observed": 0.1643,
+    "observed_CI": [
+      0.1488,
+      0.1801
+    ],
+    "predicted": 0.2149,
+    "predicted_CI": [
+      0.1966,
+      0.2321
+    ],
+    "gap_pred_minus_observed": 0.0506,
+    "gap_op_CI": [
+      0.0306,
+      0.0702
+    ],
+    "gap_vs_comparison": 0.1411,
+    "gap_pc_CI": [
+      0.1224,
+      0.1595
+    ]
+  },
+  "Age>=65": {
+    "n": 4475,
+    "n_pos": 777,
+    "observed": 0.1736,
+    "observed_CI": [
+      0.1628,
+      0.1843
+    ],
+    "predicted": 0.2101,
+    "predicted_CI": [
+      0.1981,
+      0.2218
+    ],
+    "gap_pred_minus_observed": 0.0364,
+    "gap_op_CI": [
+      0.023,
+      0.051
+    ],
+    "gap_vs_comparison": 0.1793,
+    "gap_pc_CI": [
+      0.1672,
+      0.1918
+    ]
+  },
+  "_roc_auc": {
+    "point": 0.7974,
+    "CI": [
+      0.7841,
+      0.8108
+    ]
+  }
+}

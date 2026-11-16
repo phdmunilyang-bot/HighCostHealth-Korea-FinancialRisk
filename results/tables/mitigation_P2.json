@@ -1,0 +1,42 @@
+{
+  "baseline": {
+    "overall": {
+      "highcost_recall": 0.382,
+      "oop_burden_recall": 0.527,
+      "selection_rate": 0.1
+    },
+    "highcost_recall": 0.382,
+    "oop_burden_recall": 0.527
+  },
+  "Medical-Aid": {
+    "baseline_selection_gap": 0.18,
+    "demographic_parity": {
+      "selection_gap": 0.001,
+      "highcost_recall": 0.373,
+      "oop_burden_recall": 0.548,
+      "selection_rate": 0.1
+    },
+    "equal_opportunity": {
+      "selection_gap": -0.003,
+      "highcost_recall": 0.382,
+      "oop_burden_recall": 0.56,
+      "selection_rate": 0.104
+    }
+  },
+  "Disability": {
+    "baseline_selection_gap": 0.237,
+    "demographic_parity": {
+      "selection_gap": 0.001,
+      "highcost_recall": 0.369,
+      "oop_burden_recall": 0.516,
+      "selection_rate": 0.1
+    },
+    "equal_opportunity": {
+      "selection_gap": 0.02,
+      "highcost_recall": 0.383,
+      "oop_burden_recall": 0.529,
+      "selection_rate": 0.103
+    }
+  },
+  "interpretation": "Both mitigations drive the selection-rate gap toward zero, but the model's recall of financial need (OOP burden) barely moves while high-cost recall falls: adjusting the outputs removes the disparity symptom at an accuracy cost without repairing the cost-as-need target distortion. This is the evidence for P2 (irreducibility by post-hoc output adjustment)."
+}

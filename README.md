@@ -38,6 +38,9 @@ A sequential five-stage pipeline (notebooks `00`–`05`) plus five appendices
 | Recalibration | `08_recalibration.ipynb` | Platt & isotonic calibration; illustrative five-axis TRIAGE score |
 | Continuous target | `09_continuous_cost.ipynb` | log-expenditure regression; RGA corroborates the binary ranking |
 | Financial risk | `10_financial_risk.ipynb` | public/private split of the top decile; household catastrophic-expenditure (CHE) and impoverishment incidence by subgroup; `financial_risk.json` |
+| Need-conditioned equity | `11_need_stratified.ipynb` | stratifies the equity primitive on recorded morbidity (chronic-disease count) and decomposes each group's predicted-positive gap into a need-explained component and a residual at equal need (direct standardization); `need_stratified.json`, `fig21` |
+| Faithfulness benchmark | `12_faithfulness_benchmark.ipynb` | LLM-independent grounding test of the reporting layer: every in-scope reviewer query answerable from a recorded artifact, every out-of-scope query correctly declined; `faithfulness_benchmark.{csv,json}` |
+| Inference & robustness | `13_robustness_ci.ipynb` | bootstrap 95% CIs for subgroup gaps and ROC-AUC; equity primitive across model classes (LR/RF/XGB); multivariable need adjustment (clinical vs full specification, LPM + bootstrap CI); operating-point sensitivity (top 5/10/20%); `robustness_ci.json`, `equity_by_model.json`, `need_multivariate.json`, `threshold_sensitivity.json`, `fig22`, `fig23` |
 
 ### Trustworthiness metrics
 
@@ -59,7 +62,11 @@ separates the *observed* subgroup high-cost rate from the model's *predicted* po
 ## Headline results (held-out 2023→2024)
 
 - Selected model **XGBoost** (5-fold CV ROC-AUC 0.799); test ROC-AUC 0.797.
-- **TRIAGE Score 0.750** → governance verdict **REVIEW**; weakest dimension **AURGE** (0.666).
+- **TRIAGE Score 0.751** (illustrative 0.75 reference threshold — a policy parameter, not a
+  pass/fail verdict; dimension-level, explainability and fairness fall below it); weakest
+  dimension **AURGE** (0.669). AURGE is now averaged over 20 fixed-seed permutation repetitions,
+  so it is reproducible and identical across notebooks 03 and 07 (previously a single random
+  ablation draw gave 0.666 in 03 vs 0.685 in 07).
 - GroupKFold-by-person AUC 0.799 ≈ time split → no person-level leakage.
 - Over-prediction (calibration intercept −2.40) largely removed by Platt scaling
   (Brier 0.210 → 0.078).

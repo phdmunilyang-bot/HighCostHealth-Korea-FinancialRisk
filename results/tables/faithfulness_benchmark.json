@@ -1,0 +1,8 @@
+{
+  "n_in_scope": 14,
+  "n_out_of_scope": 6,
+  "groundedness_in_scope": 1.0,
+  "decline_correctness_out_of_scope": 1.0,
+  "n_artifacts": 11,
+  "note": "Tests the auditable substrate only: every in-scope gold figure is verified verbatim in an emitted artifact, and every out-of-scope query is verified to have no supporting figure. LLM generation faithfulness and supervisor utility are out of scope (user study)."
+}
