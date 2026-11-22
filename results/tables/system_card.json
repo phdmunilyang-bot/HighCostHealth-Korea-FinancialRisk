@@ -1,0 +1,85 @@
+{
+  "title": "SAFE System Card: next-year high-cost prediction (longitudinal health panel)",
+  "dataset": "Korea Health Panel Study, 2nd wave (2019-2024)",
+  "unit": "person-year transition (features at t, outcome at t+1)",
+  "model": "XGBoost",
+  "n_test": 11571,
+  "headline": {
+    "SAFE_Score": 0.7499,
+    "roc_auc": 0.7974,
+    "passes_threshold": false
+  },
+  "safe_components": {
+    "AURGA": 0.6812,
+    "RGR": 0.9505,
+    "AURGE": 0.6655,
+    "Fairness_Aggregate": 0.7023
+  },
+  "thresholds": {
+    "AURGA": 0.7,
+    "RGR": 0.8,
+    "AURGE": 0.8,
+    "Fairness_Aggregate": 0.8,
+    "SAFE_Score": 0.75
+  },
+  "dimension_flags": {
+    "AURGA": false,
+    "RGR": true,
+    "AURGE": false,
+    "Fairness_Aggregate": false,
+    "SAFE_Score": false
+  },
+  "weakest_dimension": "AURGE",
+  "calibration": {
+    "brier": 0.2102,
+    "intercept": -2.4046,
+    "slope": 1.0008,
+    "cvm_pvalue": 0.0,
+    "note": "calibration is reported but NOT part of the SAFE Score; recalibration (Platt/isotonic) is a documented extension point"
+  },
+  "weight_sensitivity": {
+    "AURGA": 0.7362,
+    "RGR": 0.79,
+    "AURGE": 0.733,
+    "Fairness_Aggregate": 0.7404,
+    "baseline_equal": 0.7499
+  },
+  "weight_sensitivity_range": 0.057,
+  "model_selection": [
+    {
+      "model": "XGBoost",
+      "cv_auc_mean": 0.798761,
+      "cv_auc_sd": 0.006553
+    },
+    {
+      "model": "RandomForest",
+      "cv_auc_mean": 0.796739,
+      "cv_auc_sd": 0.007441
+    },
+    {
+      "model": "LogisticRegression",
+      "cv_auc_mean": 0.792597,
+      "cv_auc_sd": 0.006025
+    },
+    {
+      "model": "VotingEnsemble",
+      "cv_auc_mean": 0.784003,
+      "cv_auc_sd": 0.010614
+    },
+    {
+      "model": "StackingEnsemble",
+      "cv_auc_mean": 0.774096,
+      "cv_auc_sd": 0.010655
+    },
+    {
+      "model": "RandomBaseline",
+      "cv_auc_mean": 0.501533,
+      "cv_auc_sd": 0.002024
+    }
+  ],
+  "governance_recommendations": [
+    "Weakest dimension is AURGE; prioritise mitigation there.",
+    "Audit Medical-Aid and disability subgroups before any deployment (cost-as-need proxy risk).",
+    "Report prospective-split and GroupKFold results together; treat attrition as informative (see datacard)."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "by_year": [
+    {
+      "feat_year": 2019,
+      "n": 14713,
+      "mean_total_krw": 1300549.0,
+      "median_total_krw": 341654.0,
+      "mean_oop_krw": 669381.0,
+      "mean_public_krw": 631168.0,
+      "public_share_pct": 49.0
+    },
+    {
+      "feat_year": 2020,
+      "n": 13634,
+      "mean_total_krw": 1500932.0,
+      "median_total_krw": 411548.0,
+      "mean_oop_krw": 773572.0,
+      "mean_public_krw": 727359.0,
+      "public_share_pct": 48.0
+    },
+    {
+      "feat_year": 2021,
+      "n": 12822,
+      "mean_total_krw": 1782352.0,
+      "median_total_krw": 549240.0,
+      "mean_oop_krw": 951732.0,
+      "mean_public_krw": 830620.0,
+      "public_share_pct": 47.0
+    },
+    {
+      "feat_year": 2022,
+      "n": 12111,
+      "mean_total_krw": 1945273.0,
+      "median_total_krw": 620240.0,
+      "mean_oop_krw": 1034787.0,
+      "mean_public_krw": 910487.0,
+      "public_share_pct": 47.0
+    },
+    {
+      "feat_year": 2023,
+      "n": 11571,
+      "mean_total_krw": 2116553.0,
+      "median_total_krw": 735820.0,
+      "mean_oop_krw": 1140508.0,
+      "mean_public_krw": 976046.0,
+      "public_share_pct": 46.0
+    }
+  ],
+  "by_subgroup": {
+    "overall": {
+      "n": 64851.0,
+      "mean_total": 1703934.3,
+      "mean_oop": 899411.1,
+      "public_share": 47.2
+    },
+    "medical_aid": {
+      "n": 2389.0,
+      "mean_total": 3545295.8,
+      "mean_oop": 515414.1,
+      "public_share": 85.5
+    },
+    "nhi": {
+      "n": 62462.0,
+      "mean_total": 1633507.3,
+      "mean_oop": 914097.9,
+      "public_share": 44.0
+    },
+    "disability": {
+      "n": 4219.0,
+      "mean_total": 4481031.9,
+      "mean_oop": 1425277.4,
+      "public_share": 68.2
+    },
+    "age65": {
+      "n": 21450.0,
+      "mean_total": 2980828.0,
+      "mean_oop": 1392113.1,
+      "public_share": 53.3
+    },
+    "inc_low": {
+      "n": 11957.0,
+      "mean_total": 2711285.6,
+      "mean_oop": 1065803.3,
+      "public_share": 60.7
+    }
+  },
+  "pooled_mean_total_krw": 1703934.0,
+  "pooled_public_share_pct": 47.2
+}

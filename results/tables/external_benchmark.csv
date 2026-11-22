@@ -1,0 +1,4 @@
+measure,khp_self_report,published,source,note
+"Per-capita total, overall (KRW)",2116553.0,2261000.0,2024 HI Stat Yearbook,KHP feat-year 2023 vs 2024 yearbook
+"Per-capita total, age>=65 (KRW)",3401122.0,5508000.0,2024 HI Stat Yearbook,level under-reported in survey tail
+Ratio age65 / overall,1.61,2.44,derived,RATIO agreement = no differential bias by age

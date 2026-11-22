@@ -1,0 +1,19 @@
+{
+  "B": 300,
+  "means": {
+    "AURGA": 0.7281,
+    "RGR": 0.9506,
+    "Fairness": 0.7061
+  },
+  "sds": {
+    "AURGA": 0.0067,
+    "RGR": 0.0003,
+    "Fairness": 0.0092
+  },
+  "correlation": {
+    "AURGA~RGR": -0.158,
+    "AURGA~Fairness": -0.039,
+    "RGR~Fairness": -0.039
+  },
+  "interpretation": "Across bootstrap resamples the accuracy, robustness and fairness dimensions are weakly correlated, so they carry distinct signal and the equal-weighted composite is not double-counting; the 0.75 acceptance line is an illustrative reference, not a validated cutoff."
+}

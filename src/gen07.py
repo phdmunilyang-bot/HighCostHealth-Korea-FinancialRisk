@@ -48,19 +48,13 @@ Xtr, ytr, Xte, yte, yhat = art["Xtr"], art["ytr"], art["Xte"], np.asarray(art["y
 _med = Xtr.median(numeric_only=True)
 Xtr_i, Xte_i = Xtr.fillna(_med), Xte.fillna(_med)
 
-def aurge(mdl, Xref, order, n_rep=20):
-    # Deterministic AURGE: average the greedy-ablation area over n_rep permutation
-    # repetitions from dedicated fixed seeds (same scheme as notebook 03), so the
-    # full-model value here matches the governance-score AURGE exactly.
+def aurge(mdl, Xref, order):
     base = rga(list(yte), list(mdl.predict_proba(Xref)[:, 1]))
-    def once(seed):
-        r = np.random.default_rng(seed)
-        Xp = Xref.copy(); curve = [base]
-        for v in order:
-            Xp[v] = r.permutation(Xp[v].values)
-            curve.append(rga(list(yte), list(mdl.predict_proba(Xp)[:, 1])))
-        return float(trapz(curve, dx=1) / ((len(curve) - 1) * base))
-    return float(np.mean([once(1000 + i) for i in range(n_rep)])), base
+    Xp = Xref.copy(); curve = [base]
+    for v in order:
+        Xp[v] = rng.permutation(Xp[v].values)
+        curve.append(rga(list(yte), list(mdl.predict_proba(Xp)[:, 1])))
+    return float(trapz(curve, dx=1) / ((len(curve) - 1) * base)), base
 
 # ---- (a) grouped RGE over interpretable feature blocks ----
 GROUPS = {

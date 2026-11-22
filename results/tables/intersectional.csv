@@ -1,0 +1,5 @@
+cell,n,observed,predicted,pred_ci_lo,pred_ci_hi,gap_pred_minus_obs
+MedAid & Disab,140,0.243,0.386,0.307,0.464,0.143
+MedAid only,314,0.169,0.223,0.178,0.268,0.054
+Disab only,682,0.21,0.306,0.273,0.342,0.097
+Neither,10435,0.089,0.079,0.074,0.085,-0.01

@@ -85,28 +85,15 @@ RGR = rgr_score(yhat)
 rgr_feat = compute_rgr_values(Xte_i, list(yhat), model, FEAT, perturbation_percentage=0.05)  # cross-check
 
 # ---------- Explainability: AURGE via greedy feature ablation ----------
-# Deterministic AURGE: the greedy-ablation area is averaged over N_AURGE permutation
-# repetitions drawn from a dedicated fixed-seed RNG, so the value is reproducible and
-# independent of any upstream RNG consumption (an expectation form, as used for RGR).
-# The same helper and seed scheme are used in notebook 07, so the full-model AURGE
-# reported there is identical to the one folded into the governance score here.
-N_AURGE = 20
 rge_df = compute_rge_values(Xtr_i, Xte_i, list(yhat), model, FEAT).sort_values("RGE", ascending=False)
 order = list(rge_df.index)
 base = rga(list(yte), list(yhat))
-def _aurge_mean(mdl, Xref, feat_order, n_rep=N_AURGE):
-    curves = []
-    for i in range(n_rep):
-        r = np.random.default_rng(1000 + i)
-        Xp = Xref.copy(); c = [base]
-        for var in feat_order:
-            Xp[var] = r.permutation(Xp[var].values)
-            c.append(rga(list(yte), list(mdl.predict_proba(Xp)[:, 1])))
-        curves.append(c)
-    mean_curve = list(np.mean(np.array(curves), axis=0))
-    aurge_val = float(np.mean([trapz(c, dx=1) / ((len(c) - 1) * base) for c in curves]))
-    return aurge_val, mean_curve   # normalised area retained (mean over repetitions)
-AURGE, curve = _aurge_mean(model, Xte_i, order)
+Xp = Xte_i.copy(); curve = [base]
+for var in order:
+    Xp[var] = rng.permutation(Xp[var].values)
+    yk = model.predict_proba(Xp)[:, 1]
+    curve.append(rga(list(yte), list(yk)))
+AURGE = float(trapz(curve, dx=1) / ((len(curve) - 1) * base))   # normalised area retained
 
 # ---------- Fairness: SPD / EOD / AOD / DIR aggregate ----------
 thr = np.quantile(yhat, 0.90)            # decision aligned with the top-decile target

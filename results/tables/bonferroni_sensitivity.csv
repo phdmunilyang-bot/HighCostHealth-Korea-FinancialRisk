@@ -1,0 +1,5 @@
+group,n_group,gap,ci95_lo,ci95_hi,ci_bonf_lo,ci_bonf_hi,excl_zero_95,excl_zero_bonf
+medical_aid,454,0.1801,0.1394,0.2218,0.1276,0.2348,True,True
+disability,822,0.2367,0.2043,0.2683,0.1963,0.275,True,True
+age65,4475,0.1793,0.1664,0.1923,0.1636,0.1958,True,True
+inc_low,2154,0.1411,0.1226,0.1605,0.117,0.1654,True,True

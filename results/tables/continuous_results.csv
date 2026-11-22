@@ -1,0 +1,3 @@
+,r2_log,spearman,rga_cost,auc_recover_binary
+Ridge,0.2097,0.5783,0.7658,0.7417
+XGBoostReg,0.3957,0.6394,0.788,0.7602

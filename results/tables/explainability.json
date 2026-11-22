@@ -1,0 +1,31 @@
+{
+  "grouped_rge": {
+    "demographic": 0.053,
+    "socioeconomic": 0.0038,
+    "health_status": 0.0043,
+    "prior_utilisation": 0.0782,
+    "private_insurance": 0.0019
+  },
+  "full_model": {
+    "n_features": 22,
+    "auc": 0.7974038364094834,
+    "rga": 0.7974038364094835,
+    "aurge": 0.685
+  },
+  "reduced_model": {
+    "n_features": 8,
+    "features": [
+      "cost",
+      "age",
+      "n_visit",
+      "oop",
+      "n_chronic",
+      "hh_income",
+      "n_phi",
+      "edu"
+    ],
+    "auc": 0.7682467544637889,
+    "rga": 0.7682467544637889,
+    "aurge": 0.6886
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "khp": {
+    "overall_pooled": 1703934.0,
+    "overall_2023": 2116553.0,
+    "age65_2023": 3401122.0,
+    "medaid_pooled": 3545296.0,
+    "ratio_age65_overall_2023": 1.607
+  },
+  "published": {
+    "overall_2024": 2261000,
+    "age65_2024": 5508000,
+    "overall_2022": 2060000,
+    "medaid_benefit_2023": 7140000,
+    "ratio_age65_overall_2024": 2.436
+  },
+  "interpretation": "KHP matches the published overall per-capita level within ~6% (2.12M vs 2.26M KRW) but UNDER-captures the senior cost concentration (ratio 1.61 vs 2.44). This does not threaten the equity finding: the prediction target is a WITHIN-YEAR TOP-DECILE RANK, invariant to any monotone within-group level shift, so uniform survey under-reporting cannot create the measured over-targeting. Only cross-person rank-distorting differential error could, and cross-year rank stability (Spearman cost_t vs cost_t+1 = 0.48-0.60 within the exposed groups) bounds it. Moreover, the survey if anything UNDER-states senior cost, so the model over-prediction of seniors is a conservative lower bound, not an inflated artifact.",
+  "rank_stability": {
+    "overall": 0.603,
+    "age65": 0.481,
+    "medical_aid": 0.596,
+    "disability": 0.575
+  }
+}

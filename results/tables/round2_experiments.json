@@ -1,0 +1,71 @@
+{
+  "intersectional": [
+    {
+      "cell": "MedAid & Disab",
+      "n": 140,
+      "observed": 0.243,
+      "predicted": 0.386,
+      "pred_ci_lo": 0.307,
+      "pred_ci_hi": 0.464,
+      "gap_pred_minus_obs": 0.143
+    },
+    {
+      "cell": "MedAid only",
+      "n": 314,
+      "observed": 0.169,
+      "predicted": 0.223,
+      "pred_ci_lo": 0.178,
+      "pred_ci_hi": 0.268,
+      "gap_pred_minus_obs": 0.054
+    },
+    {
+      "cell": "Disab only",
+      "n": 682,
+      "observed": 0.21,
+      "predicted": 0.306,
+      "pred_ci_lo": 0.273,
+      "pred_ci_hi": 0.342,
+      "gap_pred_minus_obs": 0.097
+    },
+    {
+      "cell": "Neither",
+      "n": 10435,
+      "observed": 0.089,
+      "predicted": 0.079,
+      "pred_ci_lo": 0.074,
+      "pred_ci_hi": 0.085,
+      "gap_pred_minus_obs": -0.01
+    }
+  ],
+  "disability_specs": [
+    {
+      "specification": "clinical (n_chronic, care_need, ltc)",
+      "disability_residual_gap": 0.11,
+      "ci_lo": 0.079,
+      "ci_hi": 0.141,
+      "excl_zero": true
+    },
+    {
+      "specification": "care_need alone",
+      "disability_residual_gap": 0.188,
+      "ci_lo": 0.155,
+      "ci_hi": 0.222,
+      "excl_zero": true
+    },
+    {
+      "specification": "multi-clinical composite",
+      "disability_residual_gap": 0.096,
+      "ci_lo": 0.07,
+      "ci_hi": 0.124,
+      "excl_zero": true
+    },
+    {
+      "specification": "+ prior utilisation",
+      "disability_residual_gap": 0.066,
+      "ci_lo": 0.04,
+      "ci_hi": 0.092,
+      "excl_zero": true
+    }
+  ],
+  "note": "Need-adjusted gaps here use standardized need covariates in a linear probability model on the test set; they corroborate the DIRECTION and significance of the manuscript headline residuals (which come from the main evaluation pipeline) but differ slightly in magnitude because of covariate standardization and set. The key point is that the disability residual is positive and excludes zero under EVERY specification, including one that conditions on prior cost."
+}

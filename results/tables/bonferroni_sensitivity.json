@@ -1,0 +1,52 @@
+{
+  "n_groups": 4,
+  "family_alpha": 0.05,
+  "per_test_alpha": 0.0125,
+  "ci_level_bonferroni": 98.75,
+  "rows": [
+    {
+      "group": "medical_aid",
+      "n_group": 454,
+      "gap": 0.1801,
+      "ci95_lo": 0.1394,
+      "ci95_hi": 0.2218,
+      "ci_bonf_lo": 0.1276,
+      "ci_bonf_hi": 0.2348,
+      "excl_zero_95": true,
+      "excl_zero_bonf": true
+    },
+    {
+      "group": "disability",
+      "n_group": 822,
+      "gap": 0.2367,
+      "ci95_lo": 0.2043,
+      "ci95_hi": 0.2683,
+      "ci_bonf_lo": 0.1963,
+      "ci_bonf_hi": 0.275,
+      "excl_zero_95": true,
+      "excl_zero_bonf": true
+    },
+    {
+      "group": "age65",
+      "n_group": 4475,
+      "gap": 0.1793,
+      "ci95_lo": 0.1664,
+      "ci95_hi": 0.1923,
+      "ci_bonf_lo": 0.1636,
+      "ci_bonf_hi": 0.1958,
+      "excl_zero_95": true,
+      "excl_zero_bonf": true
+    },
+    {
+      "group": "inc_low",
+      "n_group": 2154,
+      "gap": 0.1411,
+      "ci95_lo": 0.1226,
+      "ci95_hi": 0.1605,
+      "ci_bonf_lo": 0.117,
+      "ci_bonf_hi": 0.1654,
+      "excl_zero_95": true,
+      "excl_zero_bonf": true
+    }
+  ]
+}
