@@ -1,18 +1,19 @@
-# TRIAGE: Trustworthy Rank-graduation Index for Auditable Governance Evaluation
+# AGORA: an auditable governance instrument for predictive public-sector allocation
 
-A reproducible, auditable **agentic pipeline for trustworthy prediction of next-year high
-medical expenditure** on longitudinal health-panel data. TRIAGE extends the cross-sectional
-*S.A.F.E agentic* rank-graduation paradigm to a **person-year panel** setting: features
-observed in year *t* predict whether an individual falls in the **top decile of total
-medical expenditure in year *t+1***, under a **prospective time split**. Each stage emits a
-reusable artifact (datacard, model, evaluation report, system card), so the full
-trustworthiness assessment is transparent and reproducible.
+A reproducible, auditable **pipeline for the ex-ante governance of next-year high-cost
+prediction** on longitudinal health-panel data. **AGORA** (Auditable Governance Of Resource
+Allocation) operationalizes administrative accountability into fixed, inspectable artifacts:
+features observed in year *t* predict whether an individual falls in the **top decile of total
+medical expenditure in year *t+1***, under a **prospective time split**, and each stage emits a
+reusable artifact (datacard, model, evaluation report, system card) so the full governance
+assessment is transparent and reproducible. The method adapts the cross-sectional *S.A.F.E.
+agentic* rank-graduation paradigm to a **person-year panel** setting.
 
-> **Name.** The composite governance score is reported in the manuscript as the **AGORA
-> Score** (Auditable Governance Of Resource Allocation; four equally weighted rank-graduation
-> dimensions). Some generated artifacts retain a `TRIAGE`/`safe_` filename from an earlier
-> revision (e.g. `results/tables/safe_components.json`); the contents are identical to the
-> AGORA components described in the paper.
+> **Name.** The composite governance score is the **AGORA Score** (four equally weighted
+> rank-graduation dimensions), as reported in the manuscript. Some code paths and generated
+> artifacts keep a `TRIAGE`/`safe_` filename from an earlier revision of this repository (e.g.
+> `results/tables/safe_components.json`, "TRIAGE Score" in notebook `04`); these are the same
+> quantity as the AGORA Score and components — the name changed, the computation did not.
 
 > **Anonymized for peer review.** Author(s) and affiliation(s) are withheld. Manuscript
 > under review (Taylor & Francis *Interact* layout, Chicago author-date), targeting the
@@ -32,25 +33,25 @@ A sequential five-stage pipeline (notebooks `00`–`05`) plus five appendices
 | **(EDA)** | `01_eda.ipynb` | grayscale figures, `eda_summary.csv` |
 | **Modelling** | `02_modelling.ipynb` | six candidates, 5-fold CV selection, fitted pipeline |
 | **Evaluation** | `03_evaluation.ipynb` | RGA/AURGA, RGR, AURGE, fairness, calibration, `subgroup_outcomes.csv` |
-| **Governance** | `04_governance.ipynb` | `system_card.json`, TRIAGE Score, weight sensitivity |
+| **Governance** | `04_governance.ipynb` | `system_card.json`, AGORA Score (TRIAGE Score in code), weight sensitivity |
 | **Chatbot** | `05_chatbot_agent.ipynb` | artifact-grounded reviewer QA (LLM) |
 
 | Appendix | Notebook | What it adds |
 |----------|----------|--------------|
 | GroupKFold / death | `06_robustness_groupkfold.ipynb` | person-level `GroupKFold` vs the time split; death competing-risk sensitivity |
 | Explainability | `07_explainability.ipynb` | grouped RGE over feature blocks; parsimonious top-k vs full AURGE |
-| Recalibration | `08_recalibration.ipynb` | Platt & isotonic calibration; illustrative five-axis TRIAGE score |
+| Recalibration | `08_recalibration.ipynb` | Platt & isotonic calibration; illustrative five-axis AGORA score |
 | Continuous target | `09_continuous_cost.ipynb` | log-expenditure regression; RGA corroborates the binary ranking |
 | Financial risk | `10_financial_risk.ipynb` | public/private split of the top decile; household catastrophic-expenditure (CHE) and impoverishment incidence by subgroup; `financial_risk.json` |
 
 ### Trustworthiness metrics
 
-The **TRIAGE Score** is the equally weighted mean (0.25 each) of four rank-graduation
-components, all in [0, 1]: **AURGA** (accuracy), **RGR** (robustness), **AURGE**
-(explainability) and a **Fairness Aggregate** (SPD, EOD, AOD, DIR normalized to parity).
-Rank-graduation quantities use the `safeaipackage` implementation of the RGA family; for
-binary targets RGA equals ROC-AUC. Probability calibration (Brier, calibration
-intercept/slope, Cramér–von Mises) is reported but **not** folded into the TRIAGE Score —
+The **AGORA Score** (named `TRIAGE Score` in the code) is the equally weighted mean (0.25 each)
+of four rank-graduation components, all in [0, 1]: **AURGA** (accuracy), **RGR** (robustness),
+**AURGE** (explainability) and a **Fairness Aggregate** (SPD, EOD, AOD, DIR normalized to
+parity). Rank-graduation quantities use the `safeaipackage` implementation of the RGA family;
+for binary targets RGA equals ROC-AUC. Probability calibration (Brier, calibration
+intercept/slope, Cramér–von Mises) is reported but **not** folded into the AGORA Score —
 recalibration is an explicit extension axis (appendix `08`).
 
 ### Sensitive attributes
@@ -63,7 +64,7 @@ separates the *observed* subgroup high-cost rate from the model's *predicted* po
 ## Headline results (held-out 2023→2024)
 
 - Selected model **XGBoost** (5-fold CV ROC-AUC 0.799); test ROC-AUC 0.797.
-- **AGORA Score 0.750** (TRIAGE Score in code) → governance verdict **REVIEW**; weakest dimension **AURGE** (0.666).
+- **AGORA Score 0.750** → governance verdict **REVIEW**; weakest dimension **AURGE** (0.666).
 - GroupKFold-by-person AUC 0.799 ≈ time split → no person-level leakage.
 - Over-prediction (calibration intercept −2.40) largely removed by Platt scaling
   (Brier 0.210 → 0.078).
@@ -73,9 +74,10 @@ separates the *observed* subgroup high-cost rate from the model's *predicted* po
 ## Financial-risk appendix (household financial protection)
 
 Notebook `10_financial_risk.ipynb` reads the high-cost target through a household
-financial-risk and public-insurance-sustainability lens, for the emerging-markets /
-public-finance presentation of the same data. It adds no dependency to the TRIAGE Score; it
-emits `results/tables/financial_risk.json`.
+financial-risk and public-insurance-sustainability lens. It binds the fairness quantity to
+recognized welfare outcomes (catastrophic expenditure, impoverishment, the public–private split
+of the fiscal burden). It adds no dependency to the AGORA Score; it emits
+`results/tables/financial_risk.json`.
 
 - **Concentration.** The costliest decile accounts for **60.3%** of total next-year spending in
   the modelling panel (61.1% over all raw waves — the household-exposure sample used for the CHE
@@ -101,7 +103,7 @@ are survey-reported, so the magnitudes are estimates.
 ```
 .
 ├── data/
-│   ├── raw/          # KHP SAS files (NOT distributed; see Data access)
+│   ├── raw/          # KHP SAS files (NOT distributed; see Data Availability Statement)
 │   └── processed/    # generated panel + model artifacts (git-ignored)
 ├── notebooks/        # 00–10, one code cell each
 │   └── appendix_reviewer/   # reviewer-requested robustness scripts (a1–a5)
